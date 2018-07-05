@@ -57,7 +57,7 @@ static int sp_hook_s_write(PS_WRITE_ARGS) {
 }
 
 static void sp_hook_session_module() {
-  ps_module *old_mod = SESSION_G(mod);
+  const ps_module *old_mod = SESSION_G(mod);
   ps_module *mod;
 
   if (old_mod == NULL || s_module == old_mod) {
