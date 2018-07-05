@@ -13,7 +13,6 @@ ZEND_TSRMLS_CACHE_EXTERN();
 #define SESSION_G(v) (ps_globals.v)
 #endif
 
-static php_ps_globals *session_globals = NULL;
 static ps_module *s_module;
 static ps_module *s_original_mod;
 static int (*old_s_read)(PS_READ_ARGS);
@@ -129,11 +128,8 @@ void hook_session() {
   if (session_globals_id == 0) {
     session_globals_id = *module->globals_id_ptr;
   }
-#else
-  if (session_globals == NULL) {
-    session_globals = module->globals_ptr;
-  }
 #endif
+
   if (old_OnUpdateSaveHandler != NULL) {
     return;
   }
