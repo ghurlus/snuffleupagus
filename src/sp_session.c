@@ -71,7 +71,7 @@ static void sp_hook_session_module() {
     }
   }
 
-  s_original_mod = old_mod;
+  const s_original_mod = old_mod;
 
   mod = s_module;
   memcpy(mod, old_mod, sizeof(ps_module));
